@@ -1,0 +1,83 @@
+<body class="bg-img">
+    <div class="heading">
+        <br>
+        <h1 class="text-light">Player Detail</h1>
+    </div>
+    <hr width="90%" style="background-color: white;">
+    <br>
+    <div class=" justify-content-center" style="margin-left: 27%;">
+        <div class="col-md-8 card shadow px-5 py-5">
+
+            <!-- Form start here-->
+            <form class="container">
+                <div class="avatar">
+                    <img src={{logo}} width="50">
+                </div>
+
+                <!-- name field -->
+                <div class="form-group-wrapper">
+                    <div class="form-group ">
+                        <label for="staticEmail" class="col-md-6 label col-form-label">Full name :</label>
+                        <span class="value">{{item.fullname}}</span>
+                    </div>
+                    <!-- Date of birth field -->
+                    <div class="form-group ">
+                        <label for="staticEmail" class="col-md-5 label col-form-label">DOB :</label>
+                        <span class="value">{{item.dob |date:'d MMM , y'}}</span>
+                    </div>
+                    <!-- Batting field -->
+                    <div class="form-group ">
+                        <label for="staticEmail" class="col-md-5 label col-form-label">Batting :</label>
+                        <span class="value">{{item.batting}}</span>
+                    </div>
+                    <!-- Role field -->
+                    <div class="form-group ">
+                        <label for="staticEmail" class="col-md-5 label col-form-label">Role :</label>
+                        <span class="value">{{item.role}}</span>
+                    </div>
+                    <!-- Teams field -->
+                    <div class="form-group ">
+                        <label for="staticEmail" class="col-md-5 label col-form-label">Teams :</label>
+                        <span class="value">{{item.teams}}</span>
+                    </div>
+                    <!-- buttons -->
+                    <br>
+                    <div class="allbt" *ngFor="let data1 of data.dataset1; index as i">
+                        <button type="button" [routerLink]="['/listsplayers']"
+                            class="btn btn-light">Back</button>&nbsp;&nbsp;&nbsp;
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn allbt btn-danger" style="margin-top: 1%; margin-left: 10%;"
+                            data-toggle="modal" data-target="#exampleModal">
+                            Delete
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete Details</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to <b>Delete</b> this record?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                            [routerLink]="['/detailview']" data-dismiss="modal">No</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                            (click)="deleteRow(item)" [routerLink]="['/listsplayers']">Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

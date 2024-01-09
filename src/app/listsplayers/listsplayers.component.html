@@ -1,0 +1,41 @@
+<table class="table table-bordered container-fluid " style="width: 65%; margin-top: 5%; ">
+
+  <thead>
+    <tr class="bg-light  ">
+      <th scope="col">Sr.no</th>
+      <th scope="col">Full name</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Batting</th>
+      <th scope="col">Role</th>
+      <th scope="col">Team</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let data1 of data.dataset1; index as i">
+      <td>{{data1.id}}</td>
+      <td [ngStyle]="{'background-color':data1.jerseyColor, 'color':data1.textColor}">{{data1.fullname}}</td>
+      <td [ngStyle]="{'background-color':data1.jerseyColor, 'color':data1.textColor}">{{data1.dob | date:"d MMMM, y" }}</td>
+      <td [ngStyle]="{'background-color':data1.jerseyColor, 'color':data1.textColor}">{{data1.batting}}</td>
+      <td [ngStyle]="{'background-color':data1.jerseyColor, 'color':data1.textColor}">{{data1.role}}</td>
+      <td [ngStyle]="{'background-color':data1.jerseyColor, 'color':data1.textColor}">{{data1.teams}}</td>
+      <td>
+
+        <!-- buttons here -->
+        <button type="button" class=" btn-outline-primary action" data-toggle="tooltip" title="Detail view"
+          [routerLink]="['/detailview',data1.id]"><i class="fa fa-eye"></i></button>
+        <br>
+        <button type="button" class="  btn-outline-success action" data-toggle="tooltip" data-placement="top"
+          title="Edit" [routerLink]="['/edit',data1.id]"><i class="fa fa-edit"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- 
+pagination here --> 
+ <ul class="pagination"> 
+  <li class="page-item"><a class="page-link " (click)="data.loadPageFunction(1)">1</a></li>&nbsp;
+  <li class="page-item"><a class="page-link " (click)="data.loadPageFunction(2)">2</a></li>
+  <!-- <li class="page-item"><a class="page-link " (click)="data.loadPageFunction(3)">3</a></li> -->
+</ul>

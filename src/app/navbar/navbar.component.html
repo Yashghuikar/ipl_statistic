@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <img class="lazy" src={{ipl}} alt="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="navbar-brand" [routerLink]="['']">IPL-Players-Statistics</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-1">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" [routerLink]="['teamlist']">Team List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" [routerLink]="['addplayers']">Add Players</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" [routerLink]="['listsplayers']">List Players</a>
+        </li>
+        <li class="nav-item dropdown">
+          <button class="btn dbtn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+            aria-expanded="false" aria-haspopup="true">
+            Statistics
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" [routerLink]="['allsorting']" [queryParams]="{sort: 'top5PlayersWithMaxSixes'}">Top 5 players with max Sixes</a></li>
+            <li><a class="dropdown-item" [routerLink]="['allsorting']" [queryParams]="{sort: 'top5PlayersWithMaxScorers'}">Top 5 players with max Scorers</a>
+            </li>
+            <li><a class="dropdown-item" [routerLink]="['allsorting']" [queryParams]="{sort: 'top5PlayersWithMax100s'}">Top 5 players with max 100s</a></li>
+            <li><a class="dropdown-item" [routerLink]="['allsorting']" [queryParams]="{sort: 'top5PlayersWithMax50s'}">Top 5 players with max 50s</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

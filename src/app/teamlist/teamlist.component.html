@@ -1,0 +1,16 @@
+<table class="table table-bordered container-fluid " style="width: 65%; margin-top: 5%; ">
+  <thead>
+    <tr class="bg-light  ">
+      <th scope="col">Sr.no</th>
+      <th scope="col">Jersey Color</th>
+      <th scope="col" style="text-align: center;">Teams</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data1 of tmp.data; index as i">
+      <td>{{data1.id}}</td>
+      <td [ngStyle]="{'background-color':data1.jerseyColor}"></td>
+      <td style="text-align: center;">{{data1.teams}}</td>
+    </tr>
+  </tbody>
+</table>

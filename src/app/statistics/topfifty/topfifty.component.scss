@@ -1,0 +1,8 @@
+h1 {
+    text-shadow: 4px 4px 4px gray;
+}
+
+tr:hover {
+    transform: scale(1.01);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,76 @@
+.form-group-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  //padding: 30px 0;
+  .form-group {
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 12px;
+    margin: 0 10px 5px;
+    width: calc(50% - 20px);
+    label {
+      // color: #444141;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .value {
+      //  color: #4e7fad;
+      font-size: 1.5rem;
+      display: block;
+      font-weight: 500;
+      line-height: 1;
+      margin-left: 5%;
+    }
+  }
+}
+
+.allbt {
+  margin-left: 70%;
+  position: absolute;
+  margin-top: 38%;
+  z-index: 1;
+}
+.card {
+  margin-left: 4%;
+}
+.avatar img {
+  width: 100px;
+  margin: 0 auto 30px;
+  display: block;
+}
+
+input,
+select {
+  display: block;
+  width: 300px;
+  height: 2.5em;
+  background-color: rgb(230, 237, 237);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-top: 0.8px solid black;
+}
+
+.heading {
+  font-size: 20px;
+  // color: rgb(51, 48, 48);
+  font-weight: 100;
+  margin-bottom: 15px;
+  font-family: sans-serif;
+  margin-left: 39%;
+}
+.err-mess {
+  color: rgb(255, 0, 0);
+  height: 4px;
+}
+
+.bg-img {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
+    ),
+    url(/assets/images/lightt.jpg) no-repeat;
+  // background-repeat: no-repeat;
+  height: 100vh;
+  background-size: 1700px 900px;
+}

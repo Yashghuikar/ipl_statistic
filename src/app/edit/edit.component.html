@@ -1,0 +1,109 @@
+<body class="bg-img">
+
+
+    <div class="heading">
+        <br>
+        <h1 class="text-light">Edit Player Detail</h1>
+    </div>
+    <hr width="90%" style="background-color: white;">
+    <br>
+    <div class=" justify-content-center" style="margin-left: 20%;">
+        <div class="col-md-8 card shadow px-5 py-5">
+            <form class="container">
+                <div class="avatar">
+                    <img src={{avatar}} width="50">
+                </div>
+                <div class="form-group-wrapper">
+
+                    <!-- Field For fullname -->
+
+                    <div class="form-group ">
+                        <label for="staticEmail" class="col-md-6 label col-form-label">Full name :</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" value="{{item.fullname}}" #fname
+                                (blur)="getElementName($event)" required name="fname" id="staticName">
+                        </div>
+                        <div class="col-md-11">
+                            <p class="err-mess name-err-mess ">{{nameItemError}}</p>
+                        </div>
+                    </div>
+
+                    <!-- Field For DateOfBirth -->
+
+                    <div class="form-group ">
+                        <label for="staticEmail" class="col-md-5 label col-form-label">DOB :</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="date" value="{{item.dob}}" #fdate
+                                (blur)="getElementDate($event)" required name="fdate" id="staticDate">
+                        </div>
+                        <div class="col-md-11">
+                            <p class="err-mess name-err-mess ">{{dateItemError}}</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="staticEmail" class="col-md-5 label col-form-label">Batting :</label>
+
+
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" #fbat (blur)="getElementBatting($event)"
+                                value="{{item.batting}}" required name="fbatt" id="staticBat">
+                        </div>
+                        <div class="col-md-11">
+                            <p class="err-mess name-err-mess ">{{battingItemError}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="staticEmail" class="col-md-5 label col-form-label">Role :</label>
+
+
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" #frole (blur)="getElementRole($event)"
+                                value="{{item.role}}" required name="frole" id="staticRole">
+                        </div>
+                        <div class="col-md-11">
+                            <p class="err-mess name-err-mess ">{{roleItemError}}</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="staticEmail" class="col-md-5 label col-form-label">Teams :</label>
+
+
+                        <div class="col-md-5">
+                            <!-- <input type="text" class="form-control" #fteam   (blur)="getElementTeam($event)" value="{{item.teams}}" required name="fteam"
+                                id="staticTeam"> -->
+                            <select name="teams" id="teams" [(ngModel)]="item.teams" #fteam
+                                (blur)="getElementTeam($event)">
+
+
+
+                                <option value="">Select team</option>
+                                <option *ngFor="let data1 of tmp.data; index as i" value={{data1.teams}}>{{data1.teams}}
+                                </option>
+
+
+
+
+                            </select>
+                        </div>
+                        <div class="col-md-11">
+                            <p class="err-mess name-err-mess ">{{teamItemError}}</p>
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <div class="allbt">
+                        <button type="button" [routerLink]="['/listsplayers']"
+                            class="btn btn-light">Back</button>&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-success" [routerLink]="['/listsplayers']"
+                            (click)="editPlayer(fname.value,fdate.value,fbat.value,frole.value,fteam.value)">Update</button>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>

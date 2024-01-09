@@ -1,0 +1,163 @@
+<body class="bg-img">
+  <div class="heading">
+    <br>
+    <h1>Detail</h1>
+  </div>
+  <hr width="90%">
+
+  <form class="container inner" #formSignUp="ngForm" (submit)="findFunction(formSignUp)">
+
+    <!-- Field is use for name -->
+    <div class="form-group row">
+      <label for="staticEmail" class="col-md-3 label col-form-label">Full name :</label>
+      <div class="col-md-7">
+        <input type="text" class="form-control" required name="fname" #pname (blur)="getElementName($event)"
+          id="staticName" placeholder="Please enter name" [(ngModel)]="name">
+      </div>
+      <div class="col-md-9">
+        <p class="err-mess name-err-mess ">{{nameItemError}}</p>
+      </div>
+    </div>
+
+    <!-- Field is use for DateOfBirth -->
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-3 label col-form-label">DOB :</label>
+      <div class="col-md-7">
+        <input type="Date" class="form-control" name="fdate" disabled={{disabledDate}} (blur)="getElementDate($event)" required id="inputDate"
+          [(ngModel)]="date">
+      </div>
+      <div class="col-md-10">
+        <p class="err-mess name-err-mess ">{{dateItemError}}</p>
+      </div>
+    </div>
+
+    <!-- Fieldis use for Batting -->
+    <div class="form-group row">
+      <label for="teams" class="col-sm-3 label col-form-label">Batting :</label>
+      <div class="col-md-7">
+        <select name="bat" id="bat" [(ngModel)]="batting" disabled={{disabledBat}}  (blur)="getElementBatting($event)">
+          <option value=""> Select one </option>
+          <option value="right-handed">Right-handed</option>
+          <option value="left-handed">Left-handed</option>
+        </select>
+      </div>
+      <div class="col-md-10">
+        <p class="err-mess name-err-mess ">{{battingItemError}}</p>
+      </div>
+    </div>
+
+    <!-- Field is use for Role -->
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-3 label col-form-label">Role :</label>
+      <div class="col-md-7">
+        <input type="text" class="form-control" name="frole" disabled={{disabledRole}}  (blur)="getElementRole($event)" required id="inputRole"
+          required [(ngModel)]="role">
+      </div>
+      <div class="col-md-9">
+        <p class="err-mess name-err-mess ">{{roleItemError}}</p>
+      </div>
+    </div>
+
+    <!-- Field is use for Teams -->
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-3 label col-form-label">Team :</label>
+      <div class="col-md-7">
+        <select name="teams" id="teams" [(ngModel)]="color" disabled={{disabledTeam}}  #pteam (blur)="getElementTeam($event)">
+          <option value="">Select team</option>
+          <option *ngFor="let data1 of tmp.data; index as i" value={{data1.teams}}>{{data1.teams}}</option>
+        </select>
+      </div>
+      <div class="col-md-9">
+        <p class="err-mess name-err-mess ">{{teamItemError}}</p>
+      </div>
+    </div>
+
+    <!-- Next Form -->
+    <h1 class="ipl">IPL Career statistics</h1>
+
+    <!-- field is use for No of Matches -->
+    <div class="form-group row">
+      <label for="staticEmail" class="col-md-4 label col-form-label">No of Matches :</label>
+      <div class="col-md-6">
+        <input type="number" class="form-control" name="fmatch" min="0" disabled={{disabledMatch}} required (blur)="getElementMatch($event)"
+          placeholder="00" [(ngModel)]="match">
+      </div>
+      <div class="col-md-10">
+        <p class="err-mess name-err-mess ">{{matchItemError}}</p>
+      </div>
+    </div>
+
+    <!-- field is use for Runs scored  -->
+
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-4 label col-form-label">Runs scored :</label>
+      <div class="col-md-6">
+        <input type="number" class="form-control" name="frun" min="0" placeholder="00" disabled={{disabledScored}} (blur)="getElementRun($event)"
+          required [(ngModel)]="run">
+      </div>
+      <div class="col-md-10">
+        <p class="err-mess name-err-mess ">{{runItemError}}</p>
+      </div>
+    </div>
+
+    <!-- field is use for Number of Sixes  -->
+    <div class="form-group row dropdown">
+      <label for="inputPassword" class="col-sm-4  label col-form-label">Number of Sixes :</label>
+      <div class="col-md-6">
+        <input type="number" class="form-control " name="fsixes" min="0" placeholder="00" disabled={{disabledSixes}}
+          (blur)="getElementSixes($event)" required [(ngModel)]="sixes">
+      </div>
+      <div class="col-md-10">
+        <p class="err-mess name-err-mess ">{{sixesItemError}}</p>
+      </div>
+    </div>
+
+    <!-- field is use for Number of Fours  -->
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-4 label col-form-label">Number of Fours :</label>
+      <div class="col-md-6">
+        <input type="number" class="form-control" name="ffour" min="0" placeholder="00" (blur)="getElementFour($event)" disabled={{disabledFour}}
+          required [(ngModel)]="four">
+      </div>
+      <div class="col-md-10">
+        <p class="err-mess name-err-mess ">{{fourItemError}}</p>
+      </div>
+    </div>
+
+    <!-- field is use for No of 100s   -->
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-4 label col-form-label">No of 100s :</label>
+      <div class="col-md-6">
+        <input type="number" class="form-control" name="fhundred" min="0" placeholder="00"
+          (blur)="getElementHundred($event)" disabled={{disabledHundred}} required [(ngModel)]="hundred">
+      </div>
+      <div class="col-md-10">
+        <p class="err-mess name-err-mess ">{{hundredItemError}}</p>
+      </div>
+    </div>
+
+    <!-- field is use for No of 50s   -->
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-4 label col-form-label">No of 50s :</label>
+      <div class="col-md-6">
+        <input type="number" class="form-control" name="ffifty" min="0" placeholder="00"
+          (blur)="getElementFifty($event)" disabled={{disabledFifty}} required [(ngModel)]="fifty">
+      </div>
+      <div class="col-md-10">
+        <p class="err-mess name-err-mess ">{{fiftyItemError}}</p>
+      </div>
+    </div>
+
+    <!-- Button part -->
+    <div class="d-flex  bd-highlight twobut">
+      <div class="p-2 bd-highlight "><a href=""><button type="" (click)="resetFields()"
+            class="btn btn-primary button1">Cancel</button></a>
+      </div>
+      <div class="p-2 bd-highlight "><a href=""><button type="submit" (click)="addplayer()"
+            [disabled]="formSignUp.invalid" [routerLink]="['/listsplayers']"
+            class="btn btn-primary button1">Save</button></a>
+      </div>
+    </div>
+  </form>
+</body>
+

@@ -1,0 +1,57 @@
+.site-footer {
+  background-color: #26272b;
+  padding: 45px 0 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: white;
+  margin: 55px;
+}
+
+.site-footer hr {
+  border-top-color: #bbb;
+  opacity: 0.5;
+}
+
+.footer-links a {
+  color: white;
+}
+
+.footer-links a:active,
+.footer-links a:focus,
+.footer-links a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+
+.lazy {
+  height: 7vh;
+}
+
+.lazy1 {
+  margin-left: 7%;
+  height: 8vh;
+}
+
+.lazy2 {
+  margin-left: 7%;
+  height: 6vh;
+}
+
+.fb {
+  margin-left: 50%;
+}
+
+.insta {
+  margin-left: 1%;
+}
+
+.twit {
+  margin-left: 1%;
+}
+.site-footer {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 20px 10px;
+}

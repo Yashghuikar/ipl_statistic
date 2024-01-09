@@ -1,0 +1,22 @@
+<h1 style="text-align: center; margin-top: 3%;">Top 5 players with max 50s</h1>
+<hr width="90%" />
+
+<table class="table table-bordered container-fluid " style="width: 65%; margin-top: 5%; ">
+
+    <thead>
+        <tr class="bg-light  ">
+            <th scope="col">Sr.no</th>
+            <th scope="col">Full name</th>
+            <th scope="col">Team</th>
+            <th scope="col">No of max Hundred</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data1 of top5playersfifty; index as i">
+            <td>{{i+1}}</td>
+            <td [ngStyle]="{'background-color':data1.jerseyColor, 'color':data1.textColor}">{{data1.fullname}}</td>
+            <td [ngStyle]="{'background-color':data1.jerseyColor, 'color':data1.textColor}">{{data1.teams}}</td>
+            <td [ngStyle]="{'background-color':data1.jerseyColor, 'color':data1.textColor}">{{data1.nofifty}}</td>
+        </tr>
+    </tbody>
+</table>
